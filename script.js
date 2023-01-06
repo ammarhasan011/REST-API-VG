@@ -1,15 +1,22 @@
-const form = document.querySelector('#form');
+const form = document.querySelector('tvform');
 
 
-form.addEventListener('submit',(e)=>{
+form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const formdata= new formdata1();
+    //att inte html uppdaterr sig
+});
+
+const formData = new FormData(form);
+
+
+for (item of formData) {
+    console.log(item[0], item[1]);
+}
+
+fetch('http://localhost:3000/api/products', {
+    method: "POST",
+    body: formData,
 })
-
-// const data ={
-    //     name:
-    // }
-
-
-    
-    // fetch('https://localhost:3000/api/products/3', method: 'post')
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .then(res => console.log(res));
