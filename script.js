@@ -21,24 +21,26 @@ fetch('http://localhost:3000/api/products')
 var formid = document.getElementById("formid");
 
 
-formid.addEventListener('submit', event => {
-    event.preventDefault();
+formid.addEventListener('submit', e => {
+    e.defaultPrevented();
 
     const searchid = formid.querySelector("input").value;
     console.log(searchid);
+
 
 
     fetch(`http://localhost:3000/api/products/${searchid}`)
         .then(res => res.json())
         .then(data => {
 
+            console.log(data);
             const contanier = document.querySelector('#formid');
             contanier.innerHTML = data.name + "<br>" + data.id + "<br>" + data.price + "<br>" + data.size + "<br>" + data.year;
         })
 
 });
 
-////////////////////////////////////////////////////////post
+////////////////////////////////////////////////////////post a product
 //const form = document.querySelector('form');
 var formpost = document.getElementById("formpost");
 
@@ -129,14 +131,22 @@ formput.addEventListener('submit', (e) => {
 });
 
 ////////////////////////////////////////////////////////delete
-// const deleteproduct = async (id) => {
-//     const response = await fetch(`http://localhost:3000/api/products/${id}`, {
-//         method: 'DELETE'
-//     });
-//     const data = await response.json();
-//     return data;
-// }
-// //const id = { id.value };
-// deleteproduct(id).then(data => {
-//     console.log(data);
-// });
+var formdelete = document.getElementById("formdelete");
+
+formdelete.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const deleteid = formdelete.getElementById('input').value;
+    console.log(deleteid);
+    console.log(input.value);
+    console.log(data);
+
+    fetch(`http://localhost:3000/api/products/${deleteid}`, {
+        method: 'DELETE'
+    })
+        .then(res => res.json())
+        .then(data => {
+            const deletecContanier = document.querySelector('#formdelete');
+            deletecContanier.innerHTML = "This product is deleted <br><br>" + data.name + "<br>" + data.id + "</br>" + data.price + "<br>" + data.size + "<br>" + data.year;
+        })
+});
