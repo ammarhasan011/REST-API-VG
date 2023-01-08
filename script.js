@@ -18,44 +18,25 @@ fetch('http://localhost:3000/api/products')
         document.getElementById('products-from-api').innerHTML = list;
     });
 ////////////////////////////////////////////////////////get id
-
-
-
 var formid = document.getElementById("formid");
 
 
 formid.addEventListener('submit', event => {
     event.preventDefault();
-    // if (formid) {
-    //     formid.addEventListener('submit', event => {
-    //         event.preventDefault();
-    //     })
 
     const searchid = formid.querySelector("input").value;
+    console.log(searchid);
 
-    fetch('http://localhost:3000/api/products/${id}', {
-        method: 'get'
-    })
+
+    fetch(`http://localhost:3000/api/products/${searchid}`)
         .then(res => res.json())
-        .then(data => console.log(data))
         .then(data => {
-            const item = data.find(item => item.id == searchid);
+
             const contanier = document.querySelector('#formid');
-            contanier.innerHTML = product;
+            contanier.innerHTML = data.name + "<br>" + data.id + "<br>" + data.price + "<br>" + data.size + "<br>" + data.year;
         })
 
 });
-
-
-
-
-
-
-
-
-
-
-
 
 ////////////////////////////////////////////////////////post
 //const form = document.querySelector('form');
