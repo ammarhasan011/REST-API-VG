@@ -1,0 +1,35 @@
+#products-from-api {
+    background-color: salmon;
+    padding: 10px;
+    margin: 10px;
+}
+
+.divid {
+    background-color: aqua;
+    padding: 10px;
+    margin: 10px;
+}
+
+.div1 {
+    background-color: rgb(241, 108, 108);
+    padding: 10px;
+    margin: 10px;
+}
+
+#update-form {
+    background-color: rgb(108, 241, 119);
+    padding: 10px;
+    margin: 10px;
+}
+
+.div3 {
+    background-color: rgb(112, 108, 241);
+    padding: 10px;
+    margin: 10px;
+}
+
+.div4 {
+    background-color: rgb(241, 108, 183);
+    padding: 10px;
+    margin: 10px;
+}

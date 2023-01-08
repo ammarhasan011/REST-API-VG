@@ -6,23 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rest API VG</title>
-    <script src="script.js" defer></script>
+    <!-- <script src="script.js" defer></script> -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div>
-        <form>
-            <h1>Hasan TV AB</h1>
+
+    <h1>Hasan TV AB</h1>
+    <!-- -------------------------------get products----------------- -->
+    <h1>Our Products</h1>
+    <div id="products-from-api">
+    </div>
+
+
+    <!-- -------------------------------get id----------------- -->
+    <div class="divid">
+        <h1>Chose one id</h1>
+        <form id="formid">
+            <input type="number" id="input" placeholder="One id"> <br>
+            <button type="submit">One id</button>
+        </form>
+
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <!-- -------------------------------post products----------------- -->
+
+
+    <div class="div1">
+        <form id="formpost">
+            <h2>Post a new product</h2>
+
             <!-- <input type="text" id="id" name="id" placeholder="Id"><br> -->
             <input type="text" id="name" name="name" placeholder="Namn"><br>
-            <input type="text" id="price" name="price" placeholder="Price"><br>
-            <input type="text" id="size" name="size" placeholder="Size"><br>
-            <input type="text" id="year" name="year" placeholder="Year"><br><br>
-            <button type="submit">Submit/POST</button>
+            <input type="number" id="price" name="price" placeholder="Price"><br>
+            <input type="number" id="size" name="size" placeholder="Size"><br>
+            <input type="number" id="year" name="year" placeholder="Year"><br><br>
+            <button type="submit">POST</button>
+        </form>
+    </div>
+    <!-- -------------------------------put products----------------- -->
+    <div id="update-form">
+        <h2>Put/uppdate a product</h2>
+        <input type="number" id="id" name="id" placeholder="Id you want to change"><br>
+        <!-- <input type="text" id="name" name="oldname" placeholder="Old namn"><br> -->
+        <!-- <input type="number" id="price" name="oldprice" placeholder="Old Price"><br> -->
+        <input type="text" id="size" name="newname" placeholder="New name"><br>
+        <input type="number" id="year" name="newprice" placeholder="New price"><br>
+        <input type="text" id="size" name="newsize" placeholder="New size"><br>
+        <input type="text" id="size" name="newyear" placeholder="New year"><br><br>
+        <button type="submit">UPDATE</button>
+    </div>
+
+    <!-- -------------------------------delete products----------------- -->
+    <div class="div3">
+        <form>
+            <h2>Delete a product</h2>
+
+            <input type="number" id="id" name="id" placeholder="Id"><br><br>
+            <!-- <input type="text" id="name" name="name" placeholder="Namn"><br>
+            <input type="number" id="price" name="price" placeholder="Price"><br>
+            <input type="number" id="size" name="size" placeholder="Size"><br>
+            <input type="number" id="year" name="year" placeholder="Year"><br><br> -->
+
+            <button type="submit">DELETE</button>
         </form>
     </div>
 
 
+
+    <script src="script.js"></script>
 </body>
 
 </html>
