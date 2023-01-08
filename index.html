@@ -36,11 +36,11 @@
         <form id="formpost">
             <h2>Post a new product</h2>
 
-            <!-- <input type="text" id="id" name="id" placeholder="Id"><br> -->
             <input type="text" id="name" name="name" placeholder="Namn"><br>
             <input type="number" id="price" name="price" placeholder="Price"><br>
             <input type="number" id="size" name="size" placeholder="Size"><br>
             <input type="number" id="year" name="year" placeholder="Year"><br><br>
+
             <button type="submit">POST</button>
         </form>
     </div>
@@ -60,18 +60,17 @@
 
     <!-- -------------------------------put products----------------- -->
     <div id="update-form">
-        <h2>Put/uppdate a product</h2>
-        <input type="number" id="id" name="id" placeholder="Id you want to change"><br>
-        <!-- <input type="text" id="name" name="oldname" placeholder="Old namn"><br> -->
-        <!-- <input type="number" id="price" name="oldprice" placeholder="Old Price"><br> -->
-        <input type="text" id="size" name="newname" placeholder="New name"><br>
-        <input type="number" id="year" name="newprice" placeholder="New price"><br>
-        <input type="text" id="size" name="newsize" placeholder="New size"><br>
-        <input type="text" id="size" name="newyear" placeholder="New year"><br><br>
-        <button type="submit">UPDATE</button>
+        <form id="formput">
+            <h2>Put/uppdate a product</h2>
+            <input type="number" id="id" placeholder="Witch id to change"><br>
+            <input type="text" id="newname" placeholder="New name"><br>
+            <input type="number" id="newprice" placeholder="New price"><br>
+            <input type="text" id="newsize" placeholder="New size"><br>
+            <input type="text" id="newyear" placeholder="New year"><br><br>
+
+            <button type="submit" id="buttonput">UPDATE</button>
+        </form>
     </div>
-
-
 
 
 

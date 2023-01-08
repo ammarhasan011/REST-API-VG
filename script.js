@@ -33,7 +33,7 @@ formid.addEventListener('submit', e => {
         .then(res => res.json())
         .then(data => {
 
-            console.log(data);
+            // console.log(data);
             const contanier = document.querySelector('#formid');
             contanier.innerHTML = data.name + "<br>" + data.id + "<br>" + data.price + "<br>" + data.size + "<br>" + data.year;
         })
@@ -77,57 +77,47 @@ formpost.addEventListener('submit', (e) => {
 
 });
 ////////////////////////////////////////////////////////put
-// Hämta formuläret
-var formput = document.getElementById('update-form');
-let url = "http://localhost:3000/api/products/update-form"
 
-// Lyssna på submit-eventet
-formput.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Skapa ett objekt med de nya värdena
-
-    var payload = {
-        id: form.elements.id.value,
-        name: form.elements.newname.value,
-        price: form.elements.newprice.value,
-        size: form.elements.newsize.value,
-        year: form.elements.newyear.value
-    };
-
-    let option = {
-        //method: "PATCH",
-        method: "PUT",
-        body: JSON.stringify(payload)
-    }
+const formput = document.querySelector('#formput');
+const buttonput = document.querySelector('#buttonput');
 
 
-    // Skicka en PATCH-begäran med fetch()
-    fetch(url, option)
-        //  {
-        //     method: "PATCH",
-        //     body: JSON.stringify(payload),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
-        .then(response => console.log(response.status))
+buttonput.addEventListener('click', (event) => {
+    event.preventDefault();
 
 
+    const id = formput.querySelector('#id').value;
+    const newname = formput.querySelector('#newname').value;
+    const newprice = formput.querySelector('#newprice').value;
+    const newsize = formput.querySelector('#newsize').value;
+    const newyear = formput.querySelector('#newyear').value;
 
-    // .then(response => {
-    //     if (response.ok) {
-    //         // Uppdateringen lyckades
-    //         console.log('Produkten uppdaterades');
-    //     } else {
-    //         // Uppdateringen misslyckades
-    //         console.error('Misslyckades att uppdatera produkten');
-    //     }
-    // })
-    // .catch(error => {
-    //     // Ett fel uppstod
-    //     console.error('Ett fel uppstod:', error);
-    // });
+
+    fetch(`http://localhost:3000/api/products/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            name: newname,
+            price: newprice,
+            size: newsize,
+            year: newyear,
+
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+
+    })
+        .then((response) => {
+            //kolla om respons är okej 
+            if (response.ok) {
+                console.log('Product updated');
+            } else {
+                console.error('Product didnt updating');
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 });
 
 ////////////////////////////////////////////////////////delete
