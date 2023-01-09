@@ -117,7 +117,7 @@ buttonput.addEventListener('click', (event) => {
             }
         })
         .catch((error) => {
-            console.error('Error:', error);
+            console.error(error);
         });
 });
 
@@ -131,12 +131,15 @@ formdelete.addEventListener('submit', event => {
     console.log(deleteid);
 
 
-    fetch(`http://localhost:3000/api/products/${deleteid}`)//, {
-        //   method: 'DELETE'
-        // })
+    fetch(`http://localhost:3000/api/products/${deleteid}`, {
+        method: 'DELETE'
+    })
         .then(res => res.json())
         .then(data => {
             const deletecContanier = document.querySelector('#formdelete');
             deletecContanier.innerHTML = "This product is deleted <br><br>" + data.name + "<br>" + data.id + "</br>" + data.price + "<br>" + data.size + "<br>" + data.year;
         })
+        .catch((error) => {
+            console.error(error);
+        });
 });
