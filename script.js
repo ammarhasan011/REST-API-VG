@@ -21,10 +21,10 @@ fetch('http://localhost:3000/api/products')
 var formid = document.getElementById("formid");
 
 
-formid.addEventListener('submit', e => {
-    e.defaultPrevented();
-
-    const searchid = formid.querySelector("input").value;
+formid.addEventListener('submit', event => {
+    event.preventDefault();
+    //defaultPrevented funkar ej
+    const searchid = document.querySelector("input").value;
     console.log(searchid);
 
 
@@ -37,6 +37,7 @@ formid.addEventListener('submit', e => {
             const contanier = document.querySelector('#formid');
             contanier.innerHTML = data.name + "<br>" + data.id + "<br>" + data.price + "<br>" + data.size + "<br>" + data.year;
         })
+        .catch(err => console.log(err))
 
 });
 
@@ -126,14 +127,13 @@ var formdelete = document.getElementById("formdelete");
 formdelete.addEventListener('submit', event => {
     event.preventDefault();
 
-    const deleteid = formdelete.getElementById('input').value;
+    const deleteid = formdelete.querySelector('#input').value;
     console.log(deleteid);
-    console.log(input.value);
-    console.log(data);
 
-    fetch(`http://localhost:3000/api/products/${deleteid}`, {
-        method: 'DELETE'
-    })
+
+    fetch(`http://localhost:3000/api/products/${deleteid}`)//, {
+        //   method: 'DELETE'
+        // })
         .then(res => res.json())
         .then(data => {
             const deletecContanier = document.querySelector('#formdelete');
