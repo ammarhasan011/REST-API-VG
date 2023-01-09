@@ -17,6 +17,7 @@ fetch('http://localhost:3000/api/products')
         // Annropar listan
         document.getElementById('products-from-api').innerHTML = list;
     });
+
 ////////////////////////////////////////////////////////get id
 var formid = document.getElementById("formid");
 
@@ -33,7 +34,7 @@ formid.addEventListener('submit', event => {
         .then(res => res.json())
         .then(data => {
 
-            // console.log(data);
+
             const contanier = document.querySelector('#formid');
             contanier.innerHTML = data.name + "<br>" + data.id + "<br>" + data.price + "<br>" + data.size + "<br>" + data.year;
         })
@@ -42,7 +43,7 @@ formid.addEventListener('submit', event => {
 });
 
 ////////////////////////////////////////////////////////post a product
-//const form = document.querySelector('form');
+
 var formpost = document.getElementById("formpost");
 
 
